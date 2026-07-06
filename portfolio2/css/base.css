@@ -1,0 +1,90 @@
+/* ── base.css ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #F7F5F2;
+  --bg2:       #EFECE7;
+  --surface:   #E8E4DE;
+  --ink:       #1A1814;
+  --ink2:      #4A4540;
+  --ink3:      #8A857E;
+  --accent:    #1B4FD8;
+  --accent-bg: rgba(27,79,216,0.07);
+  --green:     #0F7B4A;
+  --green-bg:  rgba(15,123,74,0.08);
+  --border:    rgba(26,24,20,0.10);
+  --border2:   rgba(26,24,20,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Geist', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--ink3); border-radius: 2px; }
+
+/* ── Shared layout ── */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+section { padding: 100px 0; }
+
+.section-header { margin-bottom: 56px; }
+
+.section-eyebrow {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+/* ── Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Footer ── */
+footer {
+  padding: 28px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink3);
+  font-family: 'DM Mono', monospace;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .section-inner { padding: 0 24px; }
+  section { padding: 72px 0; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+}
